@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require("fs");
 
-client.login('NzA0NDU5ODk0MDQzOTY3NTE5.XqddnA.yaPuDlKOjN_Uqplt2j9azsQfJqo');
+client.login('BOT_TOKEN');
 
 client.on('ready', () => {
     console.log(`${client.user.tag}`);
