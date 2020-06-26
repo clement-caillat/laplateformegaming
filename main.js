@@ -66,7 +66,17 @@ client.on('message', message => {
         message.member.roles.add(id);
         message.reply("Tu fais maintenant parti des joueurs " + game);
     }
-
+    if(message.content.startsWith(pre + "idplay")){
+        args.shift();
+        var game = args.join(' ');
+        var roles = message.guild.roles.cache;
+        var role = roles.find(role => role.name === game);
+        if(!role) return message.reply("Jeu non enregistré");
+        var id = role.id;
+        if(!message.member.roles.cache.has(id)) return message.reply("Tu n'a pas indiqué que tu jouais à " + role.name);
+        message.member.roles.remove(id);
+        message.reply("Tu ne fais plus parti des joueurs " + game);
+    }
     if(message.content.startsWith(pre + "whoplays")){
         args.shift();
         var game = args.join(' ');
